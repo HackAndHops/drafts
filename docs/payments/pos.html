@@ -39,8 +39,21 @@ button:active { transform: scale(0.95); filter: brightness(1.2); }
 }
 
 /* Summary */
-.summary { font-size: clamp(18px, 5vw, 28px); text-align: center; margin-top: 10px; font-weight: bold; }
-
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: clamp(18px, 5vw, 28px);
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.summary div { 
+  padding: 5px; 
+  border-radius: 8px; 
+  background: #fff; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+}
 /* Ab Tablet Querformat: kompakter */
 @media (min-width: 800px) {
   h1 { font-size: clamp(20px, 3vw, 32px); }
@@ -65,8 +78,8 @@ button:active { transform: scale(0.95); filter: brightness(1.2); }
 <h1>Kasse</h1>
 
 <div class="summary" id="summary">
-  <p id="items">Artikel: 0</p>
-  <p id="total">Gesamt: 0 €</p>
+  <div id="items">Artikel: 0</div>
+  <div id="total">Gesamt: 0 €</div>
 </div>
 
 <div class="container">
