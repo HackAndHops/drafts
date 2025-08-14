@@ -34,8 +34,12 @@ button { font-weight: bold; border: none; border-radius: 12px; flex: 1; min-widt
 /* Klickanimation */
 button:active { transform: scale(0.95); filter: brightness(1.2); }
 
+.total-negative {
+  color: darkred;
+}
+
 /* Summary */
-.summary { font-size: clamp(18px, 5vw, 28px); text-align: center; margin-top: 10px; }
+.summary { font-size: clamp(18px, 5vw, 28px); text-align: center; margin-top: 10px; font-weight: bold; }
 
 /* Ab Tablet Querformat: kompakter */
 @media (min-width: 800px) {
@@ -43,7 +47,7 @@ button:active { transform: scale(0.95); filter: brightness(1.2); }
   .container { flex-direction: row; align-items: flex-start; }
   .item { font-size: 1.5vw; padding: 10px; }
   .item-title { font-size: clamp(18px, 2vw, 26px); }
-  .summary { font-size: clamp(20px, 2.5vw, 32px); }
+  .summary { font-size: clamp(20px, 2.5vw, 32px); font-weight: bold; }
   button { height: 35px; font-size: clamp(14px, 1.5vw, 18px); }
   .plusminus, .pfand { font-size: clamp(14px, 1.5vw, 18px); }
   .reset {
@@ -139,7 +143,11 @@ function updateDisplay() {
   let total = items.bier * prices.bier + items.wasser * prices.wasser
             + (items.bier * pfand.bier - pfandUsed.bier * pfand.bier)
             + (items.wasser * pfand.wasser - pfandUsed.wasser * pfand.wasser);
-
+  if (total < 0) {
+    totalElem.classList.add('total-negative');
+  } else {
+    totalElem.classList.remove('total-negative');
+  }
   const formattedTotal = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(total);
   document.getElementById('items').innerText = 'Artikel: ' + (items.bier + items.wasser);
   document.getElementById('total').innerText = `Gesamt: ${formattedTotal}`;
