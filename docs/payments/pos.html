@@ -144,9 +144,9 @@ function updateDisplay() {
             + (items.bier * pfand.bier - pfandUsed.bier * pfand.bier)
             + (items.wasser * pfand.wasser - pfandUsed.wasser * pfand.wasser);
   if (total < 0) {
-    totalElem.classList.add('total-negative');
+    document.getElementById('total').classList.add('total-negative');
   } else {
-    totalElem.classList.remove('total-negative');
+    document.getElementById('total').classList.remove('total-negative');
   }
   const formattedTotal = new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR'}).format(total);
   document.getElementById('items').innerText = 'Artikel: ' + (items.bier + items.wasser);
