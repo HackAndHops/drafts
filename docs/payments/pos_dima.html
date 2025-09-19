@@ -41,7 +41,7 @@ button { font-weight: bold; border: none; border-radius: 12px; flex: 1; min-widt
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0; /* sorgt dafür, dass es 100% Breite nutzt */
   background: #f5f5f5;
   padding: 10px;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.15);
@@ -51,6 +51,7 @@ button { font-weight: bold; border: none; border-radius: 12px; flex: 1; min-widt
   color: white; 
   font-weight: bold; 
   width: 100%; 
+  max-width: 100%;   /* verhindert Überlauf rechts */
   height: 50px; 
   font-size: clamp(14px, 4vw, 24px); 
   border-radius: 12px;
