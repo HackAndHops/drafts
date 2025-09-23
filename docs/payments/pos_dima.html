@@ -117,7 +117,7 @@ button:active { transform: scale(0.95); filter: brightness(1.2); }
       <span id="bier-qty">0</span>
       <button class="plusminus" onclick="changeQuantity('bier', 1)">+</button>
     </div>
-    <div style="margin-top:5px;">Pfand € 1</div>
+    <div style="margin-top:5px;">Pfand € 2</div>
     <div class="item-controls">
       <button class="pfand" onclick="changePfand('bier', -1)">−</button>
       <span id="pfand-bier-qty">0</span>
@@ -135,7 +135,7 @@ button:active { transform: scale(0.95); filter: brightness(1.2); }
 let items = { bier: 0 };
 let pfandUsed = { bier: 0 };
 let prices = { bier: 2.5 };
-let pfand = { bier: 1 };
+let pfand = { bier: 2 };
 
 function changeQuantity(item, delta) {
   items[item] += delta;
